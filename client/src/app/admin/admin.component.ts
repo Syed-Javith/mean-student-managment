@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-admin',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
 
+  @Input() user = {
+    name : "Syed Javith R",
+    gender : "M",
+    mail : "syedjavith14@gmail.com"
+  }
 }

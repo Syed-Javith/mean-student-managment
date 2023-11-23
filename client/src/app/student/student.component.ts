@@ -10,7 +10,7 @@ export class StudentComponent {
 
   @ViewChild(ProfileTabComponent) profileTabComponent !: ProfileTabComponent
 
-  student : any = {
+  user : any = {
     name : "Syed Javith R",
     gender : "M",
     mail : "syedjavith14@gmail.com",

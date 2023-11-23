@@ -7,10 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ProfileTabComponent {
 
-  @Input() student : any
+  @Input() user : any
 
    logout() : void {
-    this.student.name = 'none'
+    this.user.name = 'none'
     console.log("logout");   
   }
 

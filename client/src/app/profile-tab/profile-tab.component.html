@@ -2,13 +2,13 @@
     <!-- <p>{{student| json}} </p> -->
 
    <div>
-    <img [src]="student?.gender == 'M' ? '../../assets/images/man.jpg' :'../../assets/images/woman.jpg' " alt="" height="200" width="200">
+    <img [src]="user?.gender == 'M' ? '../../assets/images/man.jpg' :'../../assets/images/woman.jpg' " alt="" height="200" width="200">
    </div>
 
     <button (click)="logout()">logout</button>
 
-    <p>Name : {{student?.name}}</p>
-    <p>Email : {{student?.mail}} </p>
+    <p>Name : {{user?.name}}</p>
+    <p>Email : {{user?.mail}} </p>
 
 
 </div>
