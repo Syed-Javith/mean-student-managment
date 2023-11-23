@@ -9,7 +9,9 @@ import { StudentComponent } from './student/student.component';
 import { AdminControlComponent } from './admin-control/admin-control.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ProfileTabComponent } from './profile-tab/profile-tab.component';
+import { MarkTabelComponent } from './mark-tabel/mark-tabel.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import {HttpClientModule} from '@angular/common/http'
     AdminComponent,
     StudentComponent,
     AdminControlComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProfileTabComponent,
+    MarkTabelComponent
   ],
   imports: [
     BrowserModule,

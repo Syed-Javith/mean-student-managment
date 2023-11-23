@@ -1,0 +1,21 @@
+table{
+    background-color: #57bbb5;
+    /* margin: auto; */
+    color: #57bbb5;
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+    vertical-align: middle;
+    margin-top: 2rem;
+}
+tr{
+    background-color: #fff;
+    margin: 5px;
+    & td , & th {
+        padding: 5px;
+        border-radius: 2%;    
+    }
+}
+.mark-table{
+    width: 100%;
+}
