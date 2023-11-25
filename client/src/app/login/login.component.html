@@ -1,21 +1,24 @@
 <div class="login-page">
-    <h1>Login Here</h1>
+  <h1>Login Here</h1>
 
-    <img src="../../assets/images/login.jpg" alt="login image" height="300">
+  <img src="../../assets/images/login.jpg" alt="login image" height="300">
 
-<form #form="ngForm" (ngSubmit)="login(form)">
+  <form #form="ngForm" (change)="formChange(form)" (ngSubmit)="login(form)">
     <div class="form-group">
-        <label for="username">Username</label><br>
-        <input type="mail" name="username" id="username" #username="ngModel" ngModel required>
+      <label for="username">Username</label><br>
+      <input type="mail" name="username" id="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        (change)="changed(username)" #username="ngModel" ngModel required>
+      <p *ngIf="username.touched && username.invalid">enter valid e mail</p>
     </div>
     <div class="form-group">
-        <label for="password">Password</label><br>
-        <input type="password" name="password" id="password" #password="ngModel" ngModel required minlength="6">
+      <label for="password">Password</label><br>
+      <input type="password" name="password" id="password" (change)="changed(password)" #password="ngModel" ngModel
+        required minlength="6">
     </div>
-    <button type="submit" class="btn">Login</button>
-    <!-- <div *ngIf="form.hasError('invalid')"> -->
-        <p *ngIf="username.hasError('invalid')">enter valid e mail</p>
-        <p *ngIf="password.hasError('invalid') || password.hasError('minlength')">enter valid password</p>
-    <!-- </div> -->
-</form>
+    <p *ngIf="password.touched && password.hasError('invalid') || password.hasError('minlength')">enter valid password
+    </p>
+
+    <button type="submit" [ngClass]="form?.invalid ? 'danger' : 'btn'" [disabled]="form?.invalid === true">
+      {{ isLoading ? "Loading..." : "Login" }} </button>
+  </form>
 </div>

@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { ProfileTabComponent } from '../profile-tab/profile-tab.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-student',
@@ -10,21 +11,13 @@ export class StudentComponent {
 
   @ViewChild(ProfileTabComponent) profileTabComponent !: ProfileTabComponent
 
-  user : any = {
-    name : "Syed Javith R",
-    gender : "M",
-    mail : "syedjavith14@gmail.com",
+  user : any 
+
+  marks : [any]
+
+  constructor(private cookie : CookieService){
+    this.user = JSON.parse(this.cookie.get('user'))
+    this.marks = this.user?.marks;
   }
-
-  marks = [{
-    subject : "DAA",
-    code : "CS19301",
-    mark : 90
-  },{
-    subject : "DAA",
-    code : "CS19301",
-    mark : 90
-  }]
-
 
 }

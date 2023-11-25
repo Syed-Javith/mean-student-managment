@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-profile-tab',
@@ -10,11 +12,13 @@ export class ProfileTabComponent {
   @Input() user : any
 
    logout() : void {
-    this.user.name = 'none'
-    console.log("logout");   
+     this.cookie.delete('token')
+     this.cookie.delete('user')
+     this.user = null
+    this.router.navigate(['/'])
   }
 
-  constructor(){
+  constructor(private cookie : CookieService , private router : Router){
 
   }
 }

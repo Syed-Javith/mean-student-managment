@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  const url = 'http://localhost:5000/auth/login'
+  url = 'http://localhost:5000/auth/login'
 
   constructor( private http : HttpClient) { }
 
-  const LoginUser = (username : string , password : string) : Observable<any> {
-    return this.http.post(this.url, { username , password })
+  LoginUser = (email : string , password : string) : Observable<any> => {
+    return this.http.post(this.url, { email , password })
   }
 }
