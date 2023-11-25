@@ -6,9 +6,6 @@ const corsMiddleware = require('./middlewares/corsMiddleware');
 const adminRoutes = require('./routes/adminRoutes');
 const studentRoutes = require('./routes/studentRoutes')
 const authRoutes = require('./routes/authRoutes');
-const connectoPort = require('./port');
-
-
 connectToDB();
 
 app.use(corsMiddleware)
@@ -19,4 +16,6 @@ app.use('/',studentRoutes)
 app.use('/',authRoutes)
 app.use('/',adminRoutes)
 
-connectoPort();
+app.listen(5000 , () =>{
+    console.log("server started");
+})

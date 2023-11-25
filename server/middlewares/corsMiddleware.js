@@ -1,12 +1,12 @@
 const cors = require('cors');
 
-const CorsOptions = {
-    allowedHeaders : [ 'Content-type' , 'Authorization' ],
-    credentials : true ,
-    methods : ['GET' , 'POST' , 'PUT' , 'PATCH' , "DELETE"],
-    origin : ['http://localhost:3000']
+const corsOptions = {
+  allowedHeaders : [ 'Content-type' , 'Authorization' ],
+  origin: ['http://localhost:4200'],
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  credentials: true,
 };
 
-const corsMiddleware = cors(CorsOptions)
+const corsMiddleware = cors(corsOptions);
 
-module.exports = corsMiddleware
+module.exports = corsMiddleware;
