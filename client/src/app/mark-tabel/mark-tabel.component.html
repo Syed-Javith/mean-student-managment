@@ -4,11 +4,18 @@
             <th>Code</th>
             <th>Subject</th>
             <th>Mark</th>
+            <!-- <div *ngIf="loggedUser?.isAdmin === true"> -->
+                <th *ngIf="loggedUser?.isAdmin === true" colspan="2">Edit</th>
+            <!-- </div> -->
         </tr>
         <tr *ngFor="let mark of marks;">
             <td>{{mark.code}}</td>
             <td>{{mark.subject}} </td>
             <td>{{mark.mark}} </td>
+            <!-- <div *ngIf="loggedUser?.isAdmin === true"> -->
+                <td *ngIf="loggedUser?.isAdmin === true" colspan="2">Edit</td>
+            <!-- </div> -->
+            
         </tr>
     </table>
 </div>

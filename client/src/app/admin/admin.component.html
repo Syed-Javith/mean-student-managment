@@ -3,30 +3,39 @@
     <div class="admin-div">
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, iure accusantium accusamus minima odio voluptatum sunt pariatur officiis ut, perferendis animi dolores adipisci nemo hic dolorem dolore, quo nesciunt quod? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dignissimos dicta fugiat sequi nemo dolores aspernatur eum. Magni sequi beatae quam pariatur esse earum ipsam, doloribus impedit veritatis cupiditate quasi?Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi aliquam dignissimos vero tempore. Provident distinctio sint inventore doloribus corporis, esse qui saepe consequuntur nesciunt ipsa eum exercitationem aliquid enim dignissimos!</p>
         <div class="admin-btns-group">
-            <button>Edit Student Marks</button><button>Add User</button>
+            <button (click)="toggleStudentModal()">Edit Student Marks</button><button>Add User</button>
         </div>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint incidunt itaque perspiciatis voluptates aliquam velit, magni facere in accusantium unde officia numquam deserunt minima nihil labore fuga! Laborum, dicta eum.</p>
     </div>
-    <!-- <div class="admin-search-form" >
-        <form #form="ngForm">
-            <div class="form-group">
-                <label for="rollNumber">Roll Number </label><br>
-                <input type="number" name="rollNumber" id="rollNumber" #rollNumber="ngModel" ngModel>
+    <div *ngIf="isStudentModal === true then adminForm">
+    </div>
+    <ng-template #adminForm>
+        <div class="admin-form-section">
+            <div class="admin-search-form" >
+                <h3>Enter Student Details</h3>
+                <button class="x-btn" (click)="toggleStudentModal()">X</button>
+                <form #form="ngForm" (ngSubmit)="getStudent(form)">
+                    <div class="form-group">
+                        <label for="rollNumber">Roll Number </label><br>
+                        <input type="number" name="rollNumber" id="rollNumber" #rollNumber="ngModel" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department </label><br>
+                        <input type="text" name="department" id="department" #department="ngModel" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year </label><br>
+                        <select name="year" id="year" ngModel #year="ngModel">Year
+                        <option value="">Select year</option>
+                        <option value="1">I</option>
+                        <option value="2">II</option>
+                        <option value="3">III</option>
+                        <option value="4">IV</option>
+                    </select>
+                    </div>
+                    <input type="submit" class="btn" value="get student">
+                </form>
             </div>
-            <div class="form-group">
-                <label for="department">Department </label><br>
-                <input type="text" name="department" id="department" #department="ngModel" ngModel>
-            </div>
-            <div class="form-group">
-                <label for="year">Year </label><br>
-                <select name="year" id="year" ngModel #year="ngModel">Year
-                <option value="">Select year</option>
-                <option value="1">I</option>
-                <option value="2">II</option>
-                <option value="3">III</option>
-                <option value="4">IV</option>
-            </select>
-            </div>
-        </form>
-    </div> -->
+        </div>
+    </ng-template>
 </div>

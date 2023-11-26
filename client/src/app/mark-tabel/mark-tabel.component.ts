@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input , OnInit} from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-mark-tabel',
@@ -8,4 +10,25 @@ import { Component, Input } from '@angular/core';
 export class MarkTabelComponent {
 
   @Input() marks : any;
+
+
+  loggedUser : any
+
+  constructor(private adminService : AdminService , private cookie : CookieService) {
+    console.log(this.marks);
+    
+  }
+
+  ngOnInit(): void {
+    this.marks = this.adminService.marksToPanel
+    console.log(this.marks);
+    this.loggedUser = JSON.parse(this.cookie.get('user'))
+    console.log(this.cookie.get('user'));
+    
+    console.log(this.loggedUser);
+    console.log(this.loggedUser?.isAmdin);
+    
+    
+     
+  }
 }
